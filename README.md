@@ -29,7 +29,7 @@ Our organization is **hrec** (captain: doubleQ).
 
 ### Generate din and dcn prediction scores based on the preprocessed features
 - `cd fuxictr`
-- `convert_data.py` # generate fuxictr features
+- `python convert_data.py` # generate fuxictr features in `Ebnerd_large_data/`
 - `python run_expid.py --config config/ebnerd_large_tuner_config --expid DCN_Ebnerd_large_001 --gpu 0`
 - `python run_expid.py --config config/ebnerd_large_tuner_config --expid DIN_Ebnerd_large_001 --gpu 0`
 This step will generate scores in `fuxictr/features`
