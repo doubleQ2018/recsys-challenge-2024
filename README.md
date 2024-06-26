@@ -10,7 +10,7 @@ Our organization is **hrec** (captain: doubleQ).
 
     data/
     ├── image_embeddings.parquet
-    ├── /contrastive_vector.parquet
+    ├── contrastive_vector.parquet
     ├── small
     │   ├── train
     │   ├── validation
@@ -23,16 +23,18 @@ Our organization is **hrec** (captain: doubleQ).
     │   ├── test
     │   ├── articles.parquet
 
-### `python preprocess.py` to generate base features in `preprocessed/`
+### Generate base features
+- `python preprocess.py`
+- The base features will be in `preprocessed/large`
 
-### generate dnn score based on the preprocessed features
+### Generate din and dcn prediction scores based on the preprocessed features
 - `cd fuxictr`
 - `convert_data.py` # generate fuxictr features
 - `python run_expid.py --config config/ebnerd_large_tuner_config --expid DCN_Ebnerd_large_001 --gpu 0`
 - `python run_expid.py --config config/ebnerd_large_tuner_config --expid DIN_Ebnerd_large_001 --gpu 0`
 This step will generate scores in `fuxictr/features`
 
-### train xgboost/lightgbm base on these features
+### Train xgboost/lightgbm with pairwise loss or BCE base on these features 
 
 - `python main.py --model_name xgb --mode large --rank` will get result in `result/xgb_submit.zip`
 - `python main.py --model_name xgb --mode large` will get result in `result/xgb_submit_binary.zip`
