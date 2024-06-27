@@ -13,8 +13,7 @@ import warnings
 from util import *
 warnings.filterwarnings('ignore')
 
-fuxictr_features = ['DCN_Ebnerd_large_x4_001_1cbc6c01', 'DIN_Ebnerd_large_x4_001_8d986241']
-#fuxictr_features = ['DCN_Ebnerd_large_001', 'DIN_Ebnerd_large_001']
+fuxictr_features = ['DCN_Ebnerd_large_001', 'DIN_Ebnerd_large_001']
 
 def dnn_score(dataset, split):
     data = pd.DataFrame()
