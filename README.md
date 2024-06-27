@@ -6,6 +6,8 @@ Our organization is **hrec** (captain: doubleQ).
 
 ## Usage
 
+Machine: 36 cores, 2T memory, 2 * V100
+
 ### Unzip the data files in `./data/`
 
     data/
