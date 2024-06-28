@@ -61,8 +61,8 @@ if __name__ == '__main__':
     sparse_feat = [c for c in sparse_feat if c in use_feats]
     model, feature_importance_df = train_model(model_name, x_train, y_train, cat_features=[], groups=groups)
     save_file(model_save, model)
-    _, _, valid_score, _ = predict(model_name, f'{data_path}/valid.pkl', model_save, feats=use_feats)
-    _, _, test_score, _ = predict(model_name, f'{data_path}/test.pkl', model_save, feats=use_feats)
+    _, _, valid_score, _ = predict(model_name, f'{data_path}/valid.pkl', model_save, feats=use_feats, add_score=valid_dnn)
+    _, _, test_score, _ = predict(model_name, f'{data_path}/test.pkl', model_save, feats=use_feats, add_score=test_dnn)
 
     print('train on valid data')
     x_train = load_file(f'{data_path}/valid.pkl')
