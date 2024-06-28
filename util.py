@@ -242,7 +242,7 @@ def train_model(model_name, train_x, train_y, cat_features=[], init_model=None, 
 
 def predict(model_name, data_path, model_path, drop_list=None, feats=None, train_score=None, add_score=None):
     chunk_size = 1000000
-    model = load_file(model_save)
+    model = load_file(model_path)
     df = load_file(data_path)
     impression_ids = df['impression_id'].tolist()
     user_ids = df['user_id'].tolist()
