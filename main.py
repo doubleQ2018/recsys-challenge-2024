@@ -51,15 +51,17 @@ if __name__ == '__main__':
     if args.rank:
         groups = x_train.groupby(['impression_id', 'user_id'])['article_id'].count().values
     else:
-        args.tag += '_binary'
         groups = None
     os.makedirs('models', exist_ok=True)
     model_save = 'models/{}_{}.pkl'.format(model_name, args.tag)
 
     y_train = x_train[target]
     x_train = x_train[use_feats]
-    sparse_feat = [c for c in sparse_feat if c in use_feats]
-    model, feature_importance_df = train_model(model_name, x_train, y_train, cat_features=[], groups=groups)
+    if model_name == 'xgb':
+        sparse_feat = []
+    else:
+        sparse_feat = [c for c in sparse_feat if c in use_feats]
+    model, feature_importance_df = train_model(model_name, x_train, y_train, cat_features=sparse_feat, groups=groups)
     save_file(model_save, model)
     _, _, valid_score, _ = predict(model_name, f'{data_path}/valid.pkl', model_save, feats=use_feats, add_score=valid_dnn)
     _, _, test_score, _ = predict(model_name, f'{data_path}/test.pkl', model_save, feats=use_feats, add_score=test_dnn)
@@ -76,7 +78,7 @@ if __name__ == '__main__':
         groups = None
     y_train = x_train[target]
     x_train = x_train[use_feats]
-    model, feature_importance_df = train_model(model_name, x_train, y_train, cat_features=[], groups=groups, epochs=800)
+    model, feature_importance_df = train_model(model_name, x_train, y_train, cat_features=sparse_feat, groups=groups, epochs=800)
     save_file(model_save, model)
 
     print('predicting')

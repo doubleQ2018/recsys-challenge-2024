@@ -39,8 +39,8 @@ This step will generate scores in `fuxictr/features`
 ### Train xgboost/lightgbm with pairwise loss or BCE base on these features 
 
 - `python main.py --model_name xgb --mode large --rank` will get result in `result/xgb_submit.zip`
-- `python main.py --model_name xgb --mode large` will get result in `result/xgb_submit_binary.zip`
+- `python main.py --model_name lgb --mode large --rank` will get result in `result/lgb_submit.zip`
 
 ### ensemble to get final result
--- `python en.py --files result/xgb_submit.csv result/xgb_submit_binary.csv --weights 0.5 0.25 --output final_submit`
--- The final result will generated within `result/final_submit.zip`
+-- `python en.py --files result/xgb_submit.csv result/lgb_submit.csv --output xgb_lgb_submit`
+-- The final result will generated within `result/xgb_lgb_submit.zip`
