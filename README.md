@@ -42,6 +42,6 @@ This step will generate scores in `fuxictr/features`
 - `python main.py --model_name lgb --mode large --rank` will get result in `result/lgb_submit.zip`
 
 ### ensemble to get final result
--- `python en.py --files result/xgb_submit.csv result/lgb_submit.csv --output xgb_lgb_submit`
--- The final result will generated within `result/xgb_lgb_submit.zip`
--- It can achieve AUC **0.8683** in the official leaderboard, which was failed to submit in competition leaderboard due to the **Insufficient Space** issue.
+- `python en.py --files result/xgb_submit.csv result/lgb_submit.csv --output xgb_lgb_submit`
+- The final result will generated within `result/xgb_lgb_submit.zip`
+- It can achieve AUC **0.8683** in the official leaderboard, which was failed to submit in competition leaderboard due to the **Insufficient Space** issue.
