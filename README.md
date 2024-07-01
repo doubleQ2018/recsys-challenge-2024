@@ -39,9 +39,5 @@ This step will generate scores in `fuxictr/features`
 ### Train xgboost/lightgbm with pairwise loss or BCE base on these features 
 
 - `python main.py --model_name xgb --mode large --rank` will get result in `result/xgb_submit.zip`
-- `python main.py --model_name lgb --mode large --rank` will get result in `result/lgb_submit.zip`
-
-### ensemble to get final result
-- `python en.py --files result/xgb_submit.csv result/lgb_submit.csv --output xgb_lgb_submit`
-- The final result will generated within `result/xgb_lgb_submit.zip`
+- The final result will generated within `result/xgb_submit.zip`
 - It can achieve AUC **0.8683** in the official leaderboard, which was however failed to be submitted to the competition leaderboard due to the **Insufficient Space** issue, because I deleted it for more space.
