@@ -40,4 +40,4 @@ This step will generate scores in `fuxictr/features`
 
 - `python main.py --model_name xgb --mode large --rank` will get result in `result/xgb_submit.zip`
 - The final result will generated within `result/xgb_submit.zip`
-- It can achieve AUC **0.8683** in the official leaderboard, which was however failed to be submitted to the competition leaderboard due to the **Insufficient Space** issue, because I deleted it for more space.
+- It can achieve AUC **0.8714** in the official leaderboard, which was however failed to be submitted to the competition leaderboard due to the **Insufficient Space** issue, because I deleted it for more space.
